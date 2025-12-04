@@ -23,78 +23,80 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-lg" : "bg-transparent"
+      className={`fixed top-0 w-full z-50 transition-all duration-300 backdrop-blur-md ${
+        isScrolled
+          ? "bg-white/40 shadow-lg border-b border-white/20"
+          : "bg-white/10 border-b border-white/10"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-2">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+        <div className="flex items-center gap-2 flex-shrink-0">
           <img
             src="/images/figueroa-removebg-preview.png"
             alt="Figueroa Cleaning Services"
-            className="h-12 w-12 object-contain"
+            className="h-10 w-10 sm:h-12 sm:w-12 object-contain"
           />
           <span className="font-bold text-lg text-blue-900 hidden sm:block">Figueroa</span>
         </div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-8 items-center">
-          <button onClick={() => scrollToSection("services")} className="text-gray-700 hover:text-blue-600 transition">
+          <button onClick={() => scrollToSection("services")} className="text-gray-800 hover:text-blue-600 transition font-medium">
             Services
           </button>
-          <button onClick={() => scrollToSection("gallery")} className="text-gray-700 hover:text-blue-600 transition">
+          <button onClick={() => scrollToSection("gallery")} className="text-gray-800 hover:text-blue-600 transition font-medium">
             Gallery
           </button>
-          <button onClick={() => scrollToSection("why")} className="text-gray-700 hover:text-blue-600 transition">
+          <button onClick={() => scrollToSection("why")} className="text-gray-800 hover:text-blue-600 transition font-medium">
             Why Us
           </button>
-          <button onClick={() => scrollToSection("contact")} className="text-gray-700 hover:text-blue-600 transition">
+          <button onClick={() => scrollToSection("contact")} className="text-gray-800 hover:text-blue-600 transition font-medium">
             Contact
           </button>
           <a
             href="tel:224-619-7572"
-            className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition"
+            className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition font-medium"
           >
             Call Now
           </a>
         </div>
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-          {isMobileMenuOpen ? <X /> : <Menu />}
+        <button className="md:hidden text-gray-800" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200 p-4 space-y-3">
+        <div className="md:hidden bg-white/30 backdrop-blur-md border-t border-white/20 p-4 space-y-3">
           <button
             onClick={() => scrollToSection("services")}
-            className="block w-full text-left text-gray-700 hover:text-blue-600"
+            className="block w-full text-left text-gray-800 hover:text-blue-600 font-medium"
           >
             Services
           </button>
           <button
             onClick={() => scrollToSection("gallery")}
-            className="block w-full text-left text-gray-700 hover:text-blue-600"
+            className="block w-full text-left text-gray-800 hover:text-blue-600 font-medium"
           >
             Gallery
           </button>
           <button
             onClick={() => scrollToSection("why")}
-            className="block w-full text-left text-gray-700 hover:text-blue-600"
+            className="block w-full text-left text-gray-800 hover:text-blue-600 font-medium"
           >
             Why Us
           </button>
           <button
             onClick={() => scrollToSection("contact")}
-            className="block w-full text-left text-gray-700 hover:text-blue-600"
+            className="block w-full text-left text-gray-800 hover:text-blue-600 font-medium"
           >
             Contact
           </button>
           <a
             href="tel:224-619-7572"
-            className="block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition text-center"
+            className="block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition text-center font-medium"
           >
             Call Now
           </a>
